@@ -1,5 +1,5 @@
-import React from 'react'
-
+import { doctor_Img,  friends, hero_lady } from '../lib/Images';
+// red_bg, virtual, vision, googles,
 
 function Home() {
     return (
@@ -31,13 +31,14 @@ function Home() {
                     {/* Right: Image */}
                     <div className="flex-1 flex justify-center md:justify-end w-full">
                         <img
-                            src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=facearea&w=400&h=400&facepad=2"
+                            src={hero_lady}
                             alt="Woman writing in journal"
-                            className="w-64 h-72 md:w-80 md:h-96 object-cover rounded-xl shadow-lg bg-pink-200"
+                            loading='lazy'
+                            className="w-64 h-72 md:w-80 md:h-96 object-cover rounded-xl shadow-lg"
                         />
                     </div>
                 </div>
-                </section>
+            </section>
 
             {/* About INA Section */}
             <section className="w-full bg-pink-100 mt-10 py-10 px-4 flex justify-center">
@@ -69,9 +70,9 @@ function Home() {
             </section>
 
             {/* Features Section */}
-            <section className="w-full bg-blue-200 mt-10 py-12 px-4 flex justify-center items-center relative overflow-hidden">
+            <section className="w-full min-h-auto bg-blue-200 mt-10 py-12 flex justify-center items-center relative overflow-hidden">
                 {/* Optional: SVG or background image can be added here for wavy effect */}
-                <div className="max-w-6xl w-full flex flex-col items-center">
+                <div className="max-w-6xl w-full h-96 bg-[url('/bg-low.png')] flex flex-col justify-center items-center">
                     <div className="w-full flex flex-col md:flex-row gap-6 md:gap-8 justify-center items-center">
                         {/* Card 1 */}
                         <div className="bg-white/80 rounded-lg shadow-md p-6 flex-1 min-w-[260px] max-w-xs text-center">
@@ -116,24 +117,26 @@ function Home() {
                     {/* Right: Image */}
                     <div className="flex-1 flex justify-center md:justify-end w-full">
                         <img
-                            src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=400&h=400&facepad=2"
+                            src={doctor_Img}
+                            loading='lazy'
                             alt="Empowered woman in pink suit"
-                            className="w-64 h-72 md:w-80 md:h-96 object-cover rounded-xl shadow-lg bg-pink-200"
+                            className="w-64 h-72 md:w-80 md:h-96 object-cover rounded-xl shadow-lg"
                         />
                     </div>
                 </div>
             </section>
 
-            
+
             {/* Explore Emotions Section */}
             <section className="w-full bg-pink-100 py-12 px-4 flex items-center justify-center mt-10">
                 <div className="max-w-6xl w-full flex flex-col-reverse md:flex-row items-center gap-8 md:gap-16">
                     {/* Left: Image */}
                     <div className="flex-1 flex justify-center md:justify-start w-full">
                         <img
-                            src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=facearea&w=400&h=400&facepad=2"
+                            src={friends}
                             alt="Two women in a safe space"
-                            className="w-64 h-72 md:w-80 md:h-96 object-cover rounded-xl shadow-lg bg-pink-200"
+                            loading='lazy'
+                            className="w-64 h-72 md:w-80 md:h-96 object-cover rounded-xl shadow-lg"
                         />
                     </div>
                     {/* Right: Text */}
