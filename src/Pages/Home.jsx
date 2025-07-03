@@ -70,9 +70,9 @@ function Home() {
             </section>
 
             {/* Features Section */}
-            <section className="w-full min-h-auto bg-blue-200 mt-10 py-12 flex justify-center items-center relative overflow-hidden">
+            <section className="w-full min-h-auto mt-10 py-12 px-4 flex justify-center items-center relative overflow-hidden">
                 {/* Optional: SVG or background image can be added here for wavy effect */}
-                <div className="max-w-6xl w-full h-96 bg-[url('/bg-low.png')] flex flex-col justify-center items-center">
+                <div className="w-full bg-no-repeat h-full p-10 bg-cover bg-center bg-[url('/bg-low.png')]  flex flex-col justify-center items-center">
                     <div className="w-full flex flex-col md:flex-row gap-6 md:gap-8 justify-center items-center">
                         {/* Card 1 */}
                         <div className="bg-white/80 rounded-lg shadow-md p-6 flex-1 min-w-[260px] max-w-xs text-center">
@@ -151,6 +151,7 @@ function Home() {
                     </div>
                 </div>
             </section>
+
 
         </>
     );
