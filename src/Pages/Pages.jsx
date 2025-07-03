@@ -1,3 +1,4 @@
+
 import { Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import Signup from "../signup/Signup";
@@ -25,6 +26,6 @@ function Pages() {
       </Routes>
     </div>
   );
-}
+
 
 export default Pages;
