@@ -1,5 +1,5 @@
-import { doctor_Img,  friends, hero_lady } from '../lib/Images';
-// red_bg, virtual, vision, googles,
+import { doctor_Img,virtual,  vision, googles, friends, hero_lady } from '../lib/Images';
+// red_bg, 
 
 function Home() {
     return (
@@ -152,7 +152,31 @@ function Home() {
                 </div>
             </section>
 
+ {/* Digital Legacy Gallery Section */}
+            <section className="w-full bg-gray-200 mt-10 py-10 px-4 flex flex-col items-center">
+                <h2 className="text-xl md:text-2xl font-semibold text-gray-700 mb-8 text-center">Transform Emotions Into Digital Legacy.</h2>
+                <div className="w-full max-w-5xl flex flex-col md:flex-row gap-6 justify-center items-center">
+                    <div className="bg-white rounded-lg shadow-md overflow-hidden w-full md:w-1/3 flex-shrink-0">
+                        <img src={virtual} alt="Virtual woman 1" className="w-full h-56 object-cover" />
+                    </div>
+                    <div className="bg-white rounded-lg shadow-md overflow-hidden w-full md:w-1/3 flex-shrink-0">
+                        <img src={vision} alt="Virtual woman 2" className="w-full h-56 object-cover" />
+                    </div>
+                    <div className="bg-white rounded-lg shadow-md overflow-hidden w-full md:w-1/3 flex-shrink-0">
+                        <img src={googles} alt="Virtual woman 3" className="w-full h-56 object-cover" />
+                    </div>
+                </div>
+            </section>
 
+            {/* Join The sister hood */}
+            <section className="bg-pink-50 mt-10 py-10 px-4 flex flex-col items-center justify-center w-full">
+                <h2 className="text-xl md:text-2xl font-semibold text-gray-700 mb-4 text-center">join the sisterhood today</h2>
+                <p className="text-gray-700 text-base md:text-lg mb-6 text-center max-w-2xl">Embrace your journey and connect with a community that understands and supports you.</p>
+                <div className="flex gap-4 justify-center">
+                    <button className="bg-pink-300 hover:bg-pink-400 text-white font-semibold py-2 px-8 rounded-md transition shadow-md">Join</button>
+                    <button className="border border-pink-300 text-pink-700 font-semibold py-2 px-8 rounded-md transition bg-white hover:bg-pink-100">Learn more</button>
+                </div>
+            </section>
         </>
     );
 }
