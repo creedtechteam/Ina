@@ -1,5 +1,11 @@
-import { doctor_Img,virtual,  vision, googles, friends, hero_lady } from '../lib/Images';
-// red_bg, 
+import {
+    doctor_Img, virtual, vision, googles, friends, hero_lady, enny,
+    joy,
+    favour,
+    rose,
+    sarah
+} from '../lib/Images';
+
 
 function Home() {
     return (
@@ -20,10 +26,11 @@ function Home() {
                         <div className="flex items-center gap-3">
                             {/* Avatars */}
                             <div className="flex -space-x-3">
-                                <img src="/vite.svg" alt="avatar1" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
-                                <img src="/src/assets/react.svg" alt="avatar2" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
-                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="avatar3" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
-                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="avatar4" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
+                                <img src={joy} alt="avatar1" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
+                                <img src={favour} alt="avatar2" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
+                                <img src={sarah} alt="avatar3" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
+                                <img src={enny} alt="avatar4" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
+                                <img src={rose} alt="avatar4" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
                             </div>
                             <span className="text-sm text-gray-600">Love by women across Web3</span>
                         </div>
@@ -152,7 +159,7 @@ function Home() {
                 </div>
             </section>
 
- {/* Digital Legacy Gallery Section */}
+            {/* Digital Legacy Gallery Section */}
             <section className="w-full bg-gray-200 mt-10 py-10 px-4 flex flex-col items-center">
                 <h2 className="text-xl md:text-2xl font-semibold text-gray-700 mb-8 text-center">Transform Emotions Into Digital Legacy.</h2>
                 <div className="w-full max-w-5xl flex flex-col md:flex-row gap-6 justify-center items-center">

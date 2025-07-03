@@ -4,3 +4,8 @@ export { default as friends } from '../assets/friends.png';
 export { default as hero_lady } from '../assets/hero_lady.png';
 export { default as virtual } from '../assets/virtual.png';
 export { default as vision } from '../assets/vision.png';
+export { default as enny } from '../assets/enny.png';
+export { default as joy } from '../assets/joy.png';
+export { default as favour } from '../assets/favour.png';
+export { default as rose } from '../assets/rose.png';
+export { default as sarah } from '../assets/sarah.png';
