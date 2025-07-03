@@ -1,5 +1,11 @@
-import { doctor_Img,  friends, hero_lady } from '../lib/Images';
-// red_bg, virtual, vision, googles,
+import {
+    doctor_Img, virtual, vision, googles, friends, hero_lady, enny,
+    joy,
+    favour,
+    rose,
+    sarah
+} from '../lib/Images';
+
 
 function Home() {
     return (
@@ -20,10 +26,11 @@ function Home() {
                         <div className="flex items-center gap-3">
                             {/* Avatars */}
                             <div className="flex -space-x-3">
-                                <img src="/vite.svg" alt="avatar1" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
-                                <img src="/src/assets/react.svg" alt="avatar2" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
-                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="avatar3" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
-                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="avatar4" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
+                                <img src={joy} alt="avatar1" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
+                                <img src={favour} alt="avatar2" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
+                                <img src={sarah} alt="avatar3" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
+                                <img src={enny} alt="avatar4" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
+                                <img src={rose} alt="avatar4" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
                             </div>
                             <span className="text-sm text-gray-600">Love by women across Web3</span>
                         </div>
@@ -70,9 +77,9 @@ function Home() {
             </section>
 
             {/* Features Section */}
-            <section className="w-full min-h-auto bg-blue-200 mt-10 py-12 flex justify-center items-center relative overflow-hidden">
+            <section className="w-full min-h-auto mt-10 py-12 px-4 flex justify-center items-center relative overflow-hidden">
                 {/* Optional: SVG or background image can be added here for wavy effect */}
-                <div className="max-w-6xl w-full h-96 bg-[url('/bg-low.png')] flex flex-col justify-center items-center">
+                <div className="w-full bg-no-repeat h-full p-10 bg-cover bg-center bg-[url('/bg-low.png')]  flex flex-col justify-center items-center">
                     <div className="w-full flex flex-col md:flex-row gap-6 md:gap-8 justify-center items-center">
                         {/* Card 1 */}
                         <div className="bg-white/80 rounded-lg shadow-md p-6 flex-1 min-w-[260px] max-w-xs text-center">
@@ -152,6 +159,31 @@ function Home() {
                 </div>
             </section>
 
+            {/* Digital Legacy Gallery Section */}
+            <section className="w-full bg-gray-200 mt-10 py-10 px-4 flex flex-col items-center">
+                <h2 className="text-xl md:text-2xl font-semibold text-gray-700 mb-8 text-center">Transform Emotions Into Digital Legacy.</h2>
+                <div className="w-full max-w-5xl flex flex-col md:flex-row gap-6 justify-center items-center">
+                    <div className="bg-white rounded-lg shadow-md overflow-hidden w-full md:w-1/3 flex-shrink-0">
+                        <img src={virtual} alt="Virtual woman 1" className="w-full h-56 object-cover" />
+                    </div>
+                    <div className="bg-white rounded-lg shadow-md overflow-hidden w-full md:w-1/3 flex-shrink-0">
+                        <img src={vision} alt="Virtual woman 2" className="w-full h-56 object-cover" />
+                    </div>
+                    <div className="bg-white rounded-lg shadow-md overflow-hidden w-full md:w-1/3 flex-shrink-0">
+                        <img src={googles} alt="Virtual woman 3" className="w-full h-56 object-cover" />
+                    </div>
+                </div>
+            </section>
+
+            {/* Join The sister hood */}
+            <section className="bg-pink-50 mt-10 py-10 px-4 flex flex-col items-center justify-center w-full">
+                <h2 className="text-xl md:text-2xl font-semibold text-gray-700 mb-4 text-center">join the sisterhood today</h2>
+                <p className="text-gray-700 text-base md:text-lg mb-6 text-center max-w-2xl">Embrace your journey and connect with a community that understands and supports you.</p>
+                <div className="flex gap-4 justify-center">
+                    <button className="bg-pink-300 hover:bg-pink-400 text-white font-semibold py-2 px-8 rounded-md transition shadow-md">Join</button>
+                    <button className="border border-pink-300 text-pink-700 font-semibold py-2 px-8 rounded-md transition bg-white hover:bg-pink-100">Learn more</button>
+                </div>
+            </section>
         </>
     );
 }
