@@ -1,6 +1,1 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
 @import "tailwindcss";
-@theme {
-  --font-Manrope: "Manrope", sans-serif;
-  --font-Plus-Jakarta: "Plus Jakarta Sans", sans-serif;
-}
