@@ -7,7 +7,9 @@ function App() {
   return (
     <>
     <Header/>
-     <Pages/>
+     <main className="mt-10">
+      <Pages/>
+     </main>
      <Footer/>
     </>
   )

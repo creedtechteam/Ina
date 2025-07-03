@@ -9,3 +9,4 @@ export { default as joy } from '../assets/joy.png';
 export { default as favour } from '../assets/favour.png';
 export { default as rose } from '../assets/rose.png';
 export { default as sarah } from '../assets/sarah.png';
+export { default as logo } from '../assets/logo.png';

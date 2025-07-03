@@ -1,5 +1,5 @@
-
 import React, { useState } from 'react';
+import { logo } from "../lib/Images"
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -9,7 +9,7 @@ function Header() {
       <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <img src="/vite.svg" alt="logo" className="w-8 h-8" />
+          <img src={logo} alt="logo" loading='lazy' className="w-8 h-8" />
         </div>
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-10 items-center font-medium text-gray-800">
@@ -19,7 +19,8 @@ function Header() {
         </ul>
         {/* Register Button */}
         <div className="hidden md:block">
-          <button className="bg-pink-300 hover:bg-pink-400 text-white font-semibold py-1.5 px-6 rounded-md transition">Register</button>
+          <button className="bg-pink-300 hover:bg-pink-400 text-white font-semibold py-1.5 px-6 rounded-md transition">
+            <a href="/signup">Register</a> </button>
         </div>
         {/* Mobile Menu Icon */}
         <button className="md:hidden flex items-center" onClick={() => setMenuOpen(!menuOpen)} aria-label="Open menu">
@@ -39,7 +40,9 @@ function Header() {
               <a href="#empower" className="py-2 px-2 rounded hover:bg-pink-200" onClick={() => setMenuOpen(false)}>Empower</a>
               <a href="#explore" className="py-2 px-2 rounded hover:bg-pink-200" onClick={() => setMenuOpen(false)}>explore</a>
               <a href="#how" className="py-2 px-2 rounded hover:bg-pink-200" onClick={() => setMenuOpen(false)}>How it work</a>
-              <button className="bg-pink-300 hover:bg-pink-400 text-white font-semibold py-2 px-6 rounded-md transition mt-4" onClick={() => setMenuOpen(false)}>Register</button>
+              <a href="/signup">
+                <button className="bg-pink-300 hover:bg-pink-400 text-white font-semibold py-2 px-6 rounded-md transition mt-4">Register</button>
+              </a>
             </div>
           </div>
         )}
