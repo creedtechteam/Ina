@@ -1,12 +1,11 @@
-import Pages from './Pages/Pages'
-
+import Pages from "./Pages/Pages";
+import React from "react";
 function App() {
-  
   return (
     <>
-     <Pages/>
+      <Pages />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
