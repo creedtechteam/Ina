@@ -1,7 +1,7 @@
 import React from "react";
 // import { Wifi, Battery, Signal } from "lucide-react";
 import { Link } from "react-router-dom";
-import page6 from "../assets/a896fb003010532864c0d1d711bd9e1a77558018.jpg";
+import page from "../assets/a896fb003010532864c0d1d711bd9e1a77558018.jpg";
 const Page6 = () => {
   const handleConnectWallet = () => {
     // Handle wallet connection logic
@@ -19,7 +19,7 @@ const Page6 = () => {
 
       {/* Hero Section with Background */}
       <div>
-        <img src={page6} alt="" />
+        <img src={page} alt="" />
       </div>
 
       {/* Content Section */}
