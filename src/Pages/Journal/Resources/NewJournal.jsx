@@ -2,7 +2,7 @@ import React from 'react'
 
 function NewJournal() {
   return (
-    <div>NewJournal</div>
+    <div>NewJournal making sense of yourself</div>
   )
 }
 
