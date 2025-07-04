@@ -9,13 +9,30 @@ function Header() {
       <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <img src={logo} alt="logo" loading='lazy' className="w-8 h-8" />
+
+          <a href="/"><img src={logo} alt="logo" loading='lazy' className="w-8 h-8" /></a>
         </div>
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-10 items-center font-medium text-gray-800">
-          <li><a href="#empower" className="hover:text-pink-400 transition">Empower</a></li>
-          <li><a href="#explore" className="hover:text-pink-400 transition">explore</a></li>
-          <li><a href="#how" className="hover:text-pink-400 transition">How it work</a></li>
+            <li><button
+            className="hover:text-pink-400 transition bg-transparent border-none outline-none cursor-pointer"
+            onClick={() => {
+              window.dispatchEvent(new CustomEvent('scroll-to-section', { detail: { section: 'explore' } }));
+            }}
+          >Explore</button></li>
+           <li><button
+            className="hover:text-pink-400 transition bg-transparent border-none outline-none cursor-pointer"
+            onClick={() => {
+              window.dispatchEvent(new CustomEvent('scroll-to-section', { detail: { section: 'empower' } }));
+            }}
+          >Empower</button></li>
+       
+          <li>
+          <button className="hover:text-pink-400 transition bg-transparent border-none outline-none cursor-pointer"
+            onClick={() => {
+              window.dispatchEvent(new CustomEvent('scroll-to-section', { detail: { section: 'how' } }));
+            }}
+          >How it works</button></li>
         </ul>
         {/* Register Button */}
         <div className="hidden md:block">
@@ -37,9 +54,28 @@ function Header() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
-              <a href="#empower" className="py-2 px-2 rounded hover:bg-pink-200" onClick={() => setMenuOpen(false)}>Empower</a>
-              <a href="#explore" className="py-2 px-2 rounded hover:bg-pink-200" onClick={() => setMenuOpen(false)}>explore</a>
-              <a href="#how" className="py-2 px-2 rounded hover:bg-pink-200" onClick={() => setMenuOpen(false)}>How it work</a>
+               <button
+                className="py-2 px-2 rounded hover:bg-pink-200 capitalize text-left text-gray-800"
+                onClick={() => {
+                  setMenuOpen(false);
+                  window.dispatchEvent(new CustomEvent('scroll-to-section', { detail: { section: 'explore' } }));
+                }}
+              >explore</button>
+              <button
+                className="py-2 px-2 rounded hover:bg-pink-200 text-left text-gray-800"
+                onClick={() => {
+                  setMenuOpen(false);
+                  window.dispatchEvent(new CustomEvent('scroll-to-section', { detail: { section: 'empower' } }));
+                }}
+              >Empower</button>
+             
+              <button
+                className="py-2 px-2 rounded hover:bg-pink-200 text-left text-gray-800"
+                onClick={() => {
+                  setMenuOpen(false);
+                  window.dispatchEvent(new CustomEvent('scroll-to-section', { detail: { section: 'how' } }));
+                }}
+              >How it works</button>
               <a href="/signup">
                 <button className="bg-pink-300 hover:bg-pink-400 text-white font-semibold py-2 px-6 rounded-md transition mt-4">Register</button>
               </a>

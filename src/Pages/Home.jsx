@@ -5,21 +5,47 @@ import {
     rose,
     sarah
 } from '../lib/Images';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 // Animate On Scroll Library
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-
 function Home() {
+    // Section refs for scroll
+    const empowerRef = useRef(null);
+    const exploreRef = useRef(null);
+    const howRef = useRef(null);
+
     useEffect(() => {
         AOS.init({ duration: 900, once: true, offset: 80 });
+
+        // Listen for custom scroll events from nav
+        const handleScrollToSection = (e) => {
+            if (e.detail && e.detail.section) {
+                let ref = null;
+                if (e.detail.section === 'empower') ref = empowerRef;
+                if (e.detail.section === 'explore') ref = exploreRef;
+                if (e.detail.section === 'how') ref = howRef;
+                if (ref && ref.current) {
+                    ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        };
+        window.addEventListener('scroll-to-section', handleScrollToSection);
+        return () => window.removeEventListener('scroll-to-section', handleScrollToSection);
     }, []);
+
+    // Offset for fixed header (height: 56px = 3.5rem, adjust if needed)
+    // const headerOffset = 64; // px, adjust to match your header height
+
+    // Helper to add scroll-margin-top to sections
+    const sectionClass = "scroll-mt-16"; // Tailwind: mt-16 = 4rem = 64px
 
     return (
         <>
-            <section className="w-full min-h-[60vh] flex items-center justify-center bg-pink-100 py-8 px-4 md:px-0" data-aos="fade-up">
+            {/* ...existing code... */}
+            <section ref={exploreRef} className={`w-full min-h-[60vh] flex items-center justify-center bg-pink-100 py-8 px-4 md:px-0 ${sectionClass}`} data-aos="fade-up">
                 <div className="max-w-5xl w-full flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16">
                     {/* Left: Text Content */}
                     <div className="flex-1 flex flex-col items-start justify-center">
@@ -30,7 +56,7 @@ function Home() {
                             In the Web3 landscape, women often struggle to express their feelings without fear of judgment. This anonymity is crucial for fostering genuine emotional connections.
                         </p>
                         <button className="bg-pink-300 lg:cursor-pointer hover:bg-pink-400 text-white font-semibold py-2 px-6 rounded-md transition mb-6 shadow-md">
-                           <a href="/signup"> Register</a>
+                            <a href="/signup"> Register</a>
                         </button>
                         <div className="flex items-center gap-3">
                             {/* Avatars */}
@@ -41,7 +67,7 @@ function Home() {
                                 <img src={enny} alt="avatar4" loading="lazy" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
                                 <img src={rose} alt="avatar4" loading="lazy" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
                             </div>
-                            <span className="text-sm text-gray-600">Love by women across Web3</span>
+                            <span className="text-sm text-gray-600">Loved by women across Web3</span>
                         </div>
                     </div>
                     {/* Right: Image */}
@@ -57,7 +83,7 @@ function Home() {
             </section>
 
             {/* About INA Section */}
-            <section className="w-full bg-pink-100 mt-10 py-10 px-4 flex justify-center" data-aos="fade-up">
+            <section className={`w-full bg-pink-100 mt-10 py-10 px-4 flex justify-center ${sectionClass}`} data-aos="fade-up">
                 <div className="max-w-4xl w-full flex flex-col items-center text-center">
                     <span className="text-sm font-medium text-gray-700 mb-1">About INA</span>
                     <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">What INA stand for?</h2>
@@ -86,10 +112,10 @@ function Home() {
             </section>
 
             {/* Features Section */}
-            <section className="w-full min-h-auto bg-red-200 lg:h-[500px] mt-10 py-12 px-4 flex justify-center items-center relative overflow-hidden" data-aos="fade-up">
+            <section ref={howRef} className={`w-[100%] min-h-auto bg-[url('/bg-low.png')] bg-center-[4rem] bg-cover bg-no-repeat lg:h-[600px] mt-10 py-12 px-4 flex justify-center items-center overflow-hidden ${sectionClass}`} data-aos="fade-up" >
+                {/* relative*/}
                 {/* Optional: SVG or background image can be added here for wavy effect */}
-                {/* bg-[url('/bg-low.png')] */}
-                <div className="w-full lg:w-full lg:bg-origin-content bg-no-repeat h-full lg:h-96 p-10 lg:bg-contain bg-cover bg-center   flex flex-col justify-center items-center">
+                <div className="w-full lg:h-[500px]  flex flex-col justify-center items-center">
                     <div className="w-full flex flex-col md:flex-row gap-6 md:gap-8 justify-center items-center">
                         {/* Card 1 */}
                         <div className="bg-white/80 rounded-lg shadow-md p-6 flex-1 min-w-[260px] max-w-xs text-center">
@@ -111,7 +137,7 @@ function Home() {
             </section>
 
             {/* Empowering Women Section */}
-            <section className="w-full bg-pink-100 py-12 px-4 flex items-center justify-center mt-10" data-aos="fade-up">
+            <section ref={empowerRef} className={`w-full bg-pink-100 py-12 px-4 flex items-center justify-center mt-10 ${sectionClass}`} data-aos="fade-up">
                 <div className="max-w-6xl w-full flex flex-col md:flex-row items-center gap-8 md:gap-16">
                     {/* Left: Text */}
                     <div className="flex-1 flex flex-col items-start justify-center">
@@ -122,12 +148,12 @@ function Home() {
                         <p className="text-base md:text-lg text-gray-700 mb-6 max-w-xl">
                             Ina is a unique platform designed for women to express their emotions safely and anonymously. Our mission is to create a nurturing environment where every story is valued and can be transformed into a digital treasure.
                         </p>
-                        <div className="flex gap-4">
+                        <div className="flex gap-4 items-center mx-auto">
                             <button className="bg-pink-300 lg:cursor-pointer hover:bg-pink-400 text-white font-semibold py-2 px-8 rounded-md transition shadow-md">
-                                Join
+                                <a href='/signup'>Join</a>
                             </button>
                             <button className="border lg:cursor-pointer border-pink-300 text-pink-700 font-semibold py-2 px-8 rounded-md transition bg-white hover:bg-pink-50">
-                                Learn more
+                                <a href='/signup'>Learn more</a>
                             </button>
                         </div>
                     </div>
@@ -145,7 +171,7 @@ function Home() {
 
 
             {/* Explore Emotions Section */}
-            <section className="w-full bg-pink-100 py-12 px-4 flex items-center justify-center mt-10" data-aos="fade-up">
+            <section className={`w-full bg-pink-100 py-12 px-4 flex items-center justify-center mt-10 ${sectionClass}`} data-aos="fade-up">
                 <div className="max-w-6xl w-full flex flex-col-reverse md:flex-row items-center gap-8 md:gap-16">
                     {/* Left: Image */}
                     <div className="flex-1 flex justify-center md:justify-start w-full">
@@ -190,8 +216,8 @@ function Home() {
                 <h2 className="text-xl md:text-2xl font-semibold text-gray-700 mb-4 text-center">join the sisterhood today</h2>
                 <p className="text-gray-700 text-base md:text-lg mb-6 text-center max-w-2xl">Embrace your journey and connect with a community that understands and supports you.</p>
                 <div className="flex gap-4 justify-center">
-                    <button className="bg-pink-300 lg:cursor-pointer hover:bg-pink-400 text-white font-semibold py-2 px-8 rounded-md transition shadow-md">Join</button>
-                    <button className="border border-pink-300 lg:cursor-pointer text-pink-700 font-semibold py-2 px-8 rounded-md transition bg-white hover:bg-pink-100">Learn more</button>
+                    <button className="bg-pink-300 lg:cursor-pointer hover:bg-pink-400 text-white font-semibold py-2 px-8 rounded-md transition shadow-md"><a href='/signup'>Join</a></button>
+                    <button className="border border-pink-300 lg:cursor-pointer text-pink-700 font-semibold py-2 px-8 rounded-md transition bg-white hover:bg-pink-100"> <a href='/signup' >Learn more </a> </button>
                 </div>
             </section>
         </>
