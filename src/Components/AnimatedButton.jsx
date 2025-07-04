@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { ArrowRight, User, UserPlus, Sparkles } from "lucide-react";
-
+import { useNavigate } from "react-router-dom";
 const AnimatedButton = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-
+  const navigate = useNavigate();
   const handleClick = async () => {
     setIsLoading(true);
     // Simulate API call
@@ -14,9 +14,9 @@ const AnimatedButton = () => {
 
     // Navigate to appropriate route
     if (isSignUp) {
-      window.location.href = "/splash";
+      navigate("/splash");
     } else {
-      window.location.href = "/splash7";
+      navigate("/splash7");
     }
   };
 

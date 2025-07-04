@@ -50,7 +50,7 @@ const Page7 = () => {
 
         {/* Sign In Link */}
         <div className="text-center">
-          <Link to="/sigin">
+          <Link to="/signin">
             <button
               onClick={handleSignIn}
               className="text-gray-600 hover:text-gray-800 transition-colors duration-300 hover:underline"
