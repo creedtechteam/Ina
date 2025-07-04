@@ -20,7 +20,7 @@ function Pages() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/signin" element={<SignIn />} />
+        <Route path="/login" element={<SignIn />} />
         <Route path="/journal" element={<Journal />} />
         <Route path="/" element={<Home />} />
         <Route path="/choose" element={<AnimatedButton />} />

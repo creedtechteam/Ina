@@ -7,12 +7,12 @@ const Page7 = () => {
   const navigate = useNavigate();
   const handleConnectWallet = () => {
     // Handle wallet connection logic
-    navigate("/signin");
+    navigate("/login");
   };
 
   const handleSignIn = () => {
     // Handle sign in navigation
-    navigate("/signin");
+    navigate("/login");
   };
 
   return (

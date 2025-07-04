@@ -2,15 +2,17 @@ import React from "react";
 // import { Wifi, Battery, Signal } from "lucide-react";
 import { Link } from "react-router-dom";
 import page from "../assets/a896fb003010532864c0d1d711bd9e1a77558018.jpg";
+import { useNavigate } from "react-router-dom";
 const Page6 = () => {
+  const navigate = useNavigate();
   const handleConnectWallet = () => {
     // Handle wallet connection logic
-    window.location.href = "/signup";
+    navigate("/signup");
   };
 
   const handleSignIn = () => {
     // Handle sign in navigation
-    window.location.href = "/signin";
+    navigate("/signin");
   };
 
   return (
