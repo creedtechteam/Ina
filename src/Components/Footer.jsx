@@ -1,7 +1,8 @@
 import React from 'react'
-import { FaLinkedin } from "react-icons/fa6";
+import { FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
-import { } from "react-icons/fa";
+import {logo}from "../lib/Images"
+
 
 
 function Footer() {
@@ -10,10 +11,13 @@ function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-10">
         {/* Logo & Socials */}
         <div className="flex flex-col gap-4 min-w-[120px]">
-          <span className="font-bold text-lg">logo</span>
+          <div className='flex items-center gap-2'>
+          <img src={logo} alt='logo' loading="lazy" className="w-8 h-8 rounded-full" />
+          <span className="font-bold text-lg">Ina</span>
+          </div>
           <div className="flex gap-4 mt-2">
             {/* Replace with your SVGs or images as needed */}
-            <a href="#" aria-label="X" className="hover:opacity-80">
+            <a href="#" aria-label="X" className="hover:opacity-80"><FaXTwitter size={20} />
             </a>
             <a href="#" aria-label="LinkedIn" className="hover:opacity-80"><FaLinkedin size={20} /></a>
             <a href="#" aria-label="Facebook" className="hover:opacity-80"><FaFacebookF size={20} /></a>
