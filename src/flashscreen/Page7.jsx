@@ -1,11 +1,11 @@
 import React from "react";
 // import { Wifi, Battery, Signal } from "lucide-react";
 import { Link } from "react-router-dom";
-import page6 from "../assets/a896fb003010532864c0d1d711bd9e1a77558018.jpg";
-const Page6 = () => {
+import page6 from "../assets/6cd7f03ef24ae7564631da2ede85722e42d6bcbf.jpg";
+const Page7 = () => {
   const handleConnectWallet = () => {
     // Handle wallet connection logic
-    window.location.href = "/signup";
+    window.location.href = "/signin";
   };
 
   const handleSignIn = () => {
@@ -26,17 +26,18 @@ const Page6 = () => {
       <div className="relative z-20 bg-gray-100 px-6 py-8  rounded-t-3xl min-h-96">
         {/* Sign up label */}
         <div className="mb-4">
-          <span className="text-gray-600 text-sm font-medium">Sign up</span>
+          <span className="text-gray-600 text-sm font-medium">Sign in</span>
         </div>
 
         {/* Main heading */}
         <h1 className="text-3xl font-bold text-gray-900 mb-4 leading-tight">
-          Begin Your Healing Journey
+          Welcome Back to Your Sanctuary
         </h1>
 
         {/* Subtitle */}
         <p className="text-gray-600 text-lg mb-12 leading-relaxed">
-          Start journaling and owning your story, privately
+          "Log in to reconnect with your voice, your vault, and your healing
+          path
         </p>
 
         {/* Connect Wallet Button */}
@@ -44,20 +45,19 @@ const Page6 = () => {
           onClick={handleConnectWallet}
           className="w-full bg-gradient-to-r from-pink-400 to-pink-500 text-white font-semibold py-4 px-6 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 mb-6"
         >
-          Connect Your Near Wallet
+          Enter Safely
         </button>
 
         {/* Sign In Link */}
         <div className="text-center">
-          <button
-            onClick={handleSignIn}
-            className="text-gray-600 hover:text-gray-800 transition-colors duration-300"
-          >
-            Already part of INA?{" "}
-            <Link to="/sigin">
-              <span className="font-semibold text-gray-900">Sign In</span>
-            </Link>
-          </button>
+          <Link to="/sigin">
+            <button
+              onClick={handleSignIn}
+              className="text-gray-600 hover:text-gray-800 transition-colors duration-300 hover:underline"
+            >
+              New here? Sign up to reclaim your voice
+            </button>
+          </Link>
         </div>
 
         {/* Decorative elements */}
@@ -75,4 +75,4 @@ const Page6 = () => {
   );
 };
 
-export default Page6;
+export default Page7;
