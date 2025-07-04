@@ -1,9 +1,9 @@
-// src/module/near/near.service.ts
 import {
   Injectable,
   OnModuleInit,
   Logger,
   InternalServerErrorException,
+  UnprocessableEntityException,
 } from '@nestjs/common';
 import {
   connect,
@@ -15,20 +15,12 @@ import {
 } from 'near-api-js';
 import * as dotenv from 'dotenv';
 import { CreateJournalEntryDto } from './dto/journal.dto';
-import { TagEnum } from 'src/module/v1/journal/enums/journal.enum';
 import { Journal, JournalDocument } from './schema/journal.schema';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { ENVIRONMENT } from 'src/common/environment';
 
 dotenv.config();
-
-export interface JournalEntry {
-  user: string;
-  content: string;
-  tags: TagEnum[];
-  is_private: boolean;
-}
-
 @Injectable()
 export class JournalService implements OnModuleInit {
   constructor(
@@ -54,10 +46,10 @@ export class JournalService implements OnModuleInit {
   private async initializeNearConnection() {
     const keyStore = new keyStores.InMemoryKeyStore();
 
-    const privateKey = process.env.NEAR_PRIVATE_KEY;
-    const accountId = process.env.NEAR_ACCOUNT_ID;
-    const contractId = process.env.NEAR_CONTRACT_ID;
-    const network = process.env.NEAR_NETWORK || 'testnet';
+    const privateKey = ENVIRONMENT.NEAR.PRIVATE_KEY;
+    const accountId = ENVIRONMENT.NEAR.ACCOUNT_ID;
+    const contractId = ENVIRONMENT.NEAR.CONTRACT_ID;
+    const network = ENVIRONMENT.NEAR.NETWORK || 'testnet';
 
     if (!privateKey || !accountId || !contractId) {
       throw new Error('Missing NEAR environment variables');
@@ -113,7 +105,7 @@ export class JournalService implements OnModuleInit {
     this.ensureInitialized();
     try {
       const result = await this.account.functionCall({
-        contractId: process.env.NEAR_CONTRACT_ID,
+        contractId: ENVIRONMENT.NEAR.CONTRACT_ID,
         methodName: 'add_journal_entry',
         args: {
           content: payload.content,
@@ -124,24 +116,24 @@ export class JournalService implements OnModuleInit {
         attachedDeposit: utils.format.parseNearAmount('0'),
       });
 
-      const transactionId = result.transaction.hash;
-      const network = process.env.NEAR_NETWORK || 'testnet';
+      const transaction_hash = result.transaction.hash;
+      const network = ENVIRONMENT.NEAR.NETWORK || 'testnet';
 
-      const explorerUrl = `https://explorer.${network}.near.org/transactions/${transactionId}`;
+      const explorerUrl = `https://explorer.${network}.near.org/transactions/${transaction_hash}`;
 
       return await this.journalModel.create({
         user: this.account.accountId,
         is_private: payload.is_private,
-        transactionId,
+        transaction_hash,
         url: explorerUrl,
       });
     } catch (error) {
       this.logger.error('Failed to add journal entry:', error);
-      throw new InternalServerErrorException('Failed to add journal entry');
+      throw new UnprocessableEntityException('Failed to add journal entry');
     }
   }
 
-  async getUserEntries(accountId: string): Promise<JournalEntry | null> {
+  async getUserEntries(accountId: string): Promise<JournalDocument | null> {
     this.ensureInitialized();
     try {
       const entry = await this.contract['get_user_entries']({
@@ -158,13 +150,13 @@ export class JournalService implements OnModuleInit {
       return entry;
     } catch (error) {
       this.logger.error('Failed to get user entries:', error);
-      throw new InternalServerErrorException(
+      throw new UnprocessableEntityException(
         'Failed to retrieve journal entries',
       );
     }
   }
 
-  async getPublicEntries(): Promise<JournalEntry[]> {
+  async getPublicEntries(): Promise<JournalDocument[]> {
     this.ensureInitialized();
     try {
       return await this.contract['get_public_entries']();
@@ -176,7 +168,7 @@ export class JournalService implements OnModuleInit {
 
   private ensureInitialized() {
     if (!this.isInitialized) {
-      throw new InternalServerErrorException('NEAR service not initialized');
+      throw new UnprocessableEntityException('NEAR service not initialized');
     }
   }
 }

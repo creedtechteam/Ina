@@ -15,25 +15,13 @@ export class Journal {
   user: string;
 
   @Prop()
-  transactionId: string;
+  transaction_hash: string;
 
   @Prop({ default: false })
   is_private: boolean;
 
   @Prop()
   url: string;
-
-  @Prop({ default: null })
-  lastLoginAt: Date;
-
-  @Prop({ default: false })
-  isNewUser: boolean;
-
-  @Prop({ default: false })
-  termsAndConditionsAccepted: boolean;
-
-  @Prop({ default: false })
-  isDeleted: boolean;
 }
 
 export const JournalSchema = SchemaFactory.createForClass(Journal);
