@@ -2,21 +2,21 @@ import React from "react";
 // import { Wifi, Battery, Signal } from "lucide-react";
 import { Link } from "react-router-dom";
 import page6 from "../assets/6cd7f03ef24ae7564631da2ede85722e42d6bcbf.jpg";
+import { useNavigate } from "react-router-dom";
 const Page7 = () => {
+  const navigate = useNavigate();
   const handleConnectWallet = () => {
     // Handle wallet connection logic
-    window.location.href = "/signin";
+    navigate("/signin");
   };
 
   const handleSignIn = () => {
     // Handle sign in navigation
-    window.location.href = "/signin";
+    navigate("/signin");
   };
 
   return (
     <div className="max-w-sm mx-auto bg-white min-h-screen relative overflow-hidden">
-      {/* Status Bar */}
-
       {/* Hero Section with Background */}
       <div>
         <img src={page6} alt="" />

@@ -12,6 +12,7 @@ import Page5 from "../flashscreen/Page5";
 import AnimatedButton from "../Components/AnimatedButton";
 import Page6 from "../flashscreen/Page6";
 import Page7 from "../flashscreen/Page7";
+import SignIn from "../SigIn/SignIn";
 
 function Pages() {
   return (
@@ -19,6 +20,7 @@ function Pages() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
         <Route path="/journal" element={<Journal />} />
         <Route path="/" element={<Home />} />
         <Route path="/choose" element={<AnimatedButton />} />
