@@ -63,7 +63,7 @@ function Header() {
         {/* Register Button */}
         <div className="hidden md:block">
           <button className="bg-pink-300 hover:bg-pink-400 text-white font-semibold py-1.5 px-6 rounded-md transition">
-            <Link to="/splash">Register</Link>{" "}
+            <Link to="/choose">Register/Login</Link>{" "}
           </button>
         </div>
         {/* Mobile Menu Icon */}
@@ -155,9 +155,9 @@ function Header() {
               >
                 How it works
               </button>
-              <Link to="/splash">
+              <Link to="/choose">
                 <button className="bg-pink-300 hover:bg-pink-400 text-white font-semibold py-2 px-6 rounded-md transition mt-4">
-                  Register
+                  Register/Login
                 </button>
               </Link>
             </div>

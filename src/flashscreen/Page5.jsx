@@ -12,12 +12,12 @@ const Page5 = () => {
   }, []);
 
   const handleSkip = () => {
-    navigate("/signup");
+    navigate("/splash6");
     // Add navigation logic here
   };
 
   const handleNext = () => {
-    navigate("/signup");
+    navigate("/splash6");
   };
 
   return (
