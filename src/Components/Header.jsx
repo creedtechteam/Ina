@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { logo } from "../lib/Images";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -62,7 +63,7 @@ function Header() {
         {/* Register Button */}
         <div className="hidden md:block">
           <button className="bg-pink-300 hover:bg-pink-400 text-white font-semibold py-1.5 px-6 rounded-md transition">
-            <a href="/splash">Register</a>{" "}
+            <Link to="/splash">Register</Link>{" "}
           </button>
         </div>
         {/* Mobile Menu Icon */}
@@ -154,11 +155,11 @@ function Header() {
               >
                 How it works
               </button>
-              <a href="/splash">
+              <Link to="/splash">
                 <button className="bg-pink-300 hover:bg-pink-400 text-white font-semibold py-2 px-6 rounded-md transition mt-4">
                   Register
                 </button>
-              </a>
+              </Link>
             </div>
           </div>
         )}

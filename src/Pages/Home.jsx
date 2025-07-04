@@ -12,7 +12,7 @@ import {
   sarah,
 } from "../lib/Images";
 import { useEffect, useRef } from "react";
-
+import { Link } from "react-router-dom";
 // Animate On Scroll Library
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -69,7 +69,7 @@ function Home() {
               fostering genuine emotional connections.
             </p>
             <button className="bg-pink-300 lg:cursor-pointer hover:bg-pink-400 text-white font-semibold py-2 px-6 rounded-md transition mb-6 shadow-md">
-              <a href="/splash"> Register</a>
+              <Link to="/splash"> Register</Link>
             </button>
             <div className="flex items-center gap-3">
               {/* Avatars */}
@@ -240,10 +240,10 @@ function Home() {
             </p>
             <div className="flex gap-4 items-center mx-auto">
               <button className="bg-pink-300 lg:cursor-pointer hover:bg-pink-400 text-white font-semibold py-2 px-8 rounded-md transition shadow-md">
-                <a href="/splash">Join</a>
+                <Link to="/splash">Join</Link>
               </button>
               <button className="border lg:cursor-pointer border-pink-300 text-pink-700 font-semibold py-2 px-8 rounded-md transition bg-white hover:bg-pink-50">
-                <a href="/splash">Learn more</a>
+                <Link to="/splash">Learn more</Link>
               </button>
             </div>
           </div>
@@ -342,11 +342,11 @@ function Home() {
         </p>
         <div className="flex gap-4 justify-center">
           <button className="bg-pink-300 lg:cursor-pointer hover:bg-pink-400 text-white font-semibold py-2 px-8 rounded-md transition shadow-md">
-            <a href="/splash">Join</a>
+            <Link to="/splash">Join</Link>
           </button>
           <button className="border border-pink-300 lg:cursor-pointer text-pink-700 font-semibold py-2 px-8 rounded-md transition bg-white hover:bg-pink-100">
             {" "}
-            <a href="/splash">Learn more </a>{" "}
+            <Link to="/splash">Learn more </Link>{" "}
           </button>
         </div>
       </section>
