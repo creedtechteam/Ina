@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { postJournalEntry } from '../../../api/journal';
 
 function NewJournal({ onBack }) {
+  const navigate = useNavigate();
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -88,7 +90,7 @@ function NewJournal({ onBack }) {
             <div className="text-sm text-gray-600 mb-8">Saved to: {vaultOptions.find(v => v.key === selectedVault)?.label || ''}</div>
             <button
               className="w-full max-w-md py-3 rounded-lg font-semibold text-white bg-pink-400 hover:bg-pink-500 active:bg-pink-600 text-base"
-              onClick={() => {}}
+              onClick={() => navigate('/journal/account')}
               disabled={loading}
             >
               Mint as NFT
