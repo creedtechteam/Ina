@@ -1,5 +1,5 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-// eslint-disable-next-line import/named
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
