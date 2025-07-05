@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Eye, EyeOff, Mail, ArrowRight } from "lucide-react";
 import pag from "../assets/6cd7f03ef24ae7564631da2ede85722e42d6bcbf.jpg"; // Adjust the path as necessary
 const SignIn = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -18,7 +20,9 @@ const SignIn = () => {
   };
 
   const handleSubmit = () => {
-    console.log("Sign in submitted:", formData);
+    // Simulate successful sign in (replace with real auth logic)
+    // If sign in is successful:
+    navigate("/journal/account");
   };
 
   const handleForgotPassword = () => {
