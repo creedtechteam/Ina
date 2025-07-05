@@ -13,6 +13,7 @@ import SignIn from "../SigIn/SignIn";
 import Account from "./Journal/Account";
 import UserCircles from "./Journal/Resources/UserCircles";
 import NewJournal from "./Journal/Resources/NewJournal";
+import UserStreak from "./Journal/Resources/UserStreak";
 
 function Pages() {
   return (
@@ -22,6 +23,8 @@ function Pages() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<SignIn />} />
         <Route path="/journal/account" element={<Account />} />
+        <Route path="/journal/resources/newjournal" element={<NewJournal />} />
+        <Route path="/journal/resources/userstreak" element={<UserStreak />} />
         <Route path="/journal/resources/newjournal" element={<NewJournal />} />
         <Route path="/journal/resources/usercircles" element={<UserCircles />} />
         <Route path="/choose" element={<AnimatedButton />} />

@@ -43,7 +43,7 @@ function Account() {
     // Map option index to route paths (update as needed)
     const optionRoutes = [
         '/Journal/Resources/NewJournal', // New journal Entry
-        '/journal/streak',               // Healing Streak
+        '/Journal/Resources/UserStreak',               // Healing Streak
         '/journal/circles',              // Support Circles
         '/journal/vault',                // public Vault
         '/journal/forge',                // The Forge
