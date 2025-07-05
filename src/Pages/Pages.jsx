@@ -13,9 +13,12 @@ import SignIn from "../SigIn/SignIn";
 import Account from "./Journal/Account";
 import UserCircles from "./Journal/Resources/UserCircles";
 import NewJournal from "./Journal/Resources/NewJournal";
+
 import Circle from "../circle-component/Circle";
 import ChooseStyle from "../Choose/ChooseStyle";
 import Profile from "../profile/Profile";
+
+import UserStreak from "./Journal/Resources/UserStreak";
 
 function Pages() {
   return (
@@ -28,12 +31,13 @@ function Pages() {
         <Route path="/journal/account" element={<Account />} />
         <Route path="/journal/resources/newjournal" element={<NewJournal />} />
         <Route path="/users" element={<Profile />} />
-        <Route
-          path="/journal/resources/usercircles"
-          element={<UserCircles />}
-        />
+        
         <Route path="/circles" element={<Circle />} />
         <Route path="/chooseStyle" element={<ChooseStyle />} />
+
+        <Route path="/journal/resources/userstreak" element={<UserStreak />} />
+        <Route path="/journal/resources/newjournal" element={<NewJournal />} />
+        <Route path="/journal/resources/usercircles" element={<UserCircles />} />
 
         <Route path="/choose" element={<AnimatedButton />} />
         <Route path="/splash" element={<Page1 />} />

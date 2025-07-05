@@ -150,7 +150,7 @@ function NewJournal({ onBack }) {
               </button>
               <button
                 className="w-11/12 max-w-md py-3 rounded-lg font-semibold text-pink-400 bg-white border border-pink-300 hover:bg-pink-100 text-base"
-                onClick={onBack}
+                onClick={() => navigate('/journal/account')}
                 disabled={loading}
               >
                 Cancel
