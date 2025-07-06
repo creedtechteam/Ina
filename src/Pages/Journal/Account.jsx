@@ -105,7 +105,9 @@ function Account() {
                 </div>
             </div>
 
-            <BottomNav />
+            <div>
+                <BottomNav />
+            </div>
         </div>
     )
 }
