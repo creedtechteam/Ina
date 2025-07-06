@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Eye, EyeOff, Mail } from "lucide-react";
 import pag3lo from "../../assets/a896fb003010532864c0d1d711bd9e1a77558018.jpg"; // Adjust the path as necessary
+import { useNavigate } from "react-router-dom";
 const SignUp = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -21,7 +23,7 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    navigate("/chooseStyle");
   };
 
   return (

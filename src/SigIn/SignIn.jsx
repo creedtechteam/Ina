@@ -4,6 +4,7 @@ import { Eye, EyeOff, Mail, ArrowRight } from "lucide-react";
 import pag from "../assets/6cd7f03ef24ae7564631da2ede85722e42d6bcbf.jpg"; // Adjust the path as necessary
 const SignIn = () => {
   const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -22,7 +23,8 @@ const SignIn = () => {
   const handleSubmit = () => {
     // Simulate successful sign in (replace with real auth logic)
     // If sign in is successful:
-    navigate("/journal/account");
+    // navigate("/journal/account");
+    navigate("/chooseStyle");
   };
 
   const handleForgotPassword = () => {
@@ -30,7 +32,7 @@ const SignIn = () => {
   };
 
   const handleSignUp = () => {
-    console.log("Sign up clicked");
+    navigate("/signup");
   };
 
   const handleGoogleSignIn = () => {
