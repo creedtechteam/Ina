@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 export { default as doctor_Img } from '../assets/doctor.png';
 export { default as googles } from '../assets/googles.png';
 export { default as friends } from '../assets/friends.png';
@@ -10,3 +11,9 @@ export { default as favour } from '../assets/favour.png';
 export { default as rose } from '../assets/rose.png';
 export { default as sarah } from '../assets/sarah.png';
 export { default as logo } from '../assets/logo.png';
+export { default as Home_log } from '../assets/house.png';
+export { default as Journal_log } from '../assets/journal.png';
+export { default as AI } from '../assets/Ai.png';
+export { default as CirclesIco } from '../assets/circles.png';
+export { default as Profile } from '../assets/profile.png';
+export { default as Vault } from '../assets/vault.png';

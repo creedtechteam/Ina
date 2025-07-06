@@ -22,13 +22,13 @@ function NewJournal({ onBack }) {
     {
       key: "dao",
       label: "DAO Vault",
-      desc: "Share anonymously with a healing community you're part of. DAO members may reflect, but never judge.",
+      desc: "Coming Soon",
       color: "bg-white border-green-500 text-green-700",
     },
     {
       key: "public",
       label: "Public Vault",
-      desc: "Make this anonymous journal public to help others feel less alone.",
+      desc: "Coming Soon",
       color: "bg-white border-purple-500 text-purple-700",
     },
   ];
