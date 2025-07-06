@@ -1,17 +1,10 @@
 import BottomNav from './BottomNav';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import MoodChart from '../../Components/MoodChart';
+import Circle from '../../circle-component/Circle';
 
 
-const moods = [
-    { label: "Love", color: "bg-red-400" },
-    { label: "Calm", color: "bg-blue-400" },
-    { label: "Happy", color: "bg-yellow-300" },
-    { label: "Angry", color: "bg-red-600" },
-    { label: "Anxious", color: "bg-green-700" },
-    { label: "Sick", color: "bg-green-500" },
-    { label: "Hurt", color: "bg-black" },
-];
 
 const options = [
     {
@@ -42,9 +35,9 @@ function Account() {
 
     // Map option index to route paths (update as needed)
     const optionRoutes = [
-        '/Journal/Resources/NewJournal', // New journal Entry
-        '/Journal/Resources/UserStreak',               // Healing Streak
-        '/journal/circles',              // Support Circles
+        '/journal/resources/newjournal', // New journal Entry
+        '/journal/resources/userstreak', // Healing Streak
+        '/circle',              // Support Circles
         '/journal/vault',                // public Vault
         '/journal/forge',                // The Forge
     ];
@@ -60,6 +53,7 @@ function Account() {
                 <div className="text-center text-lg font-medium text-gray-700 mb-2">
                     How Are You Feeling Today
                 </div>
+                {/* <Circle/> */}
                 <div className="text-center text-sm text-gray-600 mb-4">
                     Check in with Yourself.
                     <br />
@@ -67,16 +61,7 @@ function Account() {
                 </div>
 
                 <div className="flex justify-center items-center mb-6">
-                    <div className="grid grid-cols-3 gap-2 w-48 h-48 relative">
-                        {moods.map((mood, idx) => (
-                            <div
-                                key={idx}
-                                className={`w-14 h-14 rounded-full ${mood.color} flex items-center justify-center text-xs text-white shadow`}
-                            >
-                                {mood.label}
-                            </div>
-                        ))}
-                    </div>
+                <MoodChart/>
                 </div>
 
                 <div className="space-y-3 mb-6">
@@ -96,7 +81,7 @@ function Account() {
 
                 <div className="text-center">
                     <button
-                        className="bg-pink-400 hover:bg-pink-500 w-full text-white py-2 rounded disabled:opacity-50"
+                        className="bg-pink-400 mb-10 hover:bg-pink-500 w-full text-white py-2 rounded disabled:opacity-50"
                         onClick={handleContinue}
                         disabled={selectedOption === null}
                     >
