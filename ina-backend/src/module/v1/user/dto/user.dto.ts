@@ -1,11 +1,13 @@
-import { IsNotEmpty, IsString, IsOptional } from 'class-validator';
+import { IsNotEmpty, IsString } from 'class-validator';
 
 export class CreateWalletUserDto {
   @IsNotEmpty()
   @IsString()
-  accountId: string;
+  walletAddress: string;
+}
 
-  @IsOptional()
+export class WalletLoginDto {
+  @IsNotEmpty()
   @IsString()
-  username?: string;
+  walletAddress: string;
 }
