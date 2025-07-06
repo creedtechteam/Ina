@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { IoIosArrowDown } from "react-icons/io";
 import { postJournalEntry } from '../../../api/journal';
 
 function NewJournal({ onBack }) {
@@ -76,7 +77,7 @@ function NewJournal({ onBack }) {
         <div className="flex flex-col flex-1 min-h-screen items-center justify-center px-4 py-8">
           {/* Header */}
           <div className="flex items-center w-full max-w-md mx-auto mb-8">
-            <button onClick={handleBack} className="p-1">
+            <button onClick={() => navigate(-1)} className="p-1">
               <span className="text-2xl text-gray-600">&#8592;</span>
             </button>
             <div className="flex-1 text-center -ml-8">
@@ -85,11 +86,11 @@ function NewJournal({ onBack }) {
             <div className="w-8" />
           </div>
           <div className="text-center w-full max-w-md mx-auto">
-            <p className="text-gray-700 text-base mb-6">Your journal entry has been saved successfully.<br/>You're doing the inner work  and that's powerful.</p>
+            <p className="text-gray-700 text-base mb-6">Your journal entry has been saved successfully.<br />You're doing the inner work  and that's powerful.</p>
             <div className="text-6xl mb-4">🎉</div>
             <div className="text-sm text-gray-600 mb-8">Saved to: {vaultOptions.find(v => v.key === selectedVault)?.label || ''}</div>
             <button
-              className="w-full max-w-md py-3 rounded-lg font-semibold text-white bg-pink-400 hover:bg-pink-500 active:bg-pink-600 text-base"
+              className="w-full max-w-md py-3 rounded-lg font-semibold text-white bg-pink-400 hover:bg-pink-500 lg:cursor-pointer active:bg-pink-600 text-base"
               onClick={() => navigate('/journal/account')}
               disabled={loading}
             >
@@ -142,14 +143,14 @@ function NewJournal({ onBack }) {
           {!showVaultOptions && (
             <div className="fixed bottom-0 left-0 w-full bg-pink-50 border-t border-gray-200 z-50 flex flex-col items-center py-4">
               <button
-                className="w-11/12 max-w-md py-3 rounded-lg font-semibold text-white bg-pink-400 hover:bg-pink-500 active:bg-pink-600 mb-2 text-base"
+                className="w-11/12 max-w-md py-3 flex gap-3 items-center justify-center rounded-lg font-semibold text-white bg-pink-400 hover:bg-pink-500 active:bg-pink-600 mb-2 lg:cursor-pointer text-base"
                 onClick={handleSave}
                 disabled={loading || !text.trim()}
               >
-                Save Entry
+                Save Entry To <IoIosArrowDown size={20} />
               </button>
               <button
-                className="w-11/12 max-w-md py-3 rounded-lg font-semibold text-pink-400 bg-white border border-pink-300 hover:bg-pink-100 text-base"
+                className="w-11/12 max-w-md py-3 rounded-lg font-semibold text-pink-400 bg-white border border-pink-300 hover:bg-pink-100 lg:cursor-pointer text-base"
                 onClick={() => navigate('/journal/account')}
                 disabled={loading}
               >
@@ -194,14 +195,14 @@ function NewJournal({ onBack }) {
                 </div>
                 <div className="mt-8 flex flex-col gap-3">
                   <button
-                    className="w-full py-3 rounded-lg font-semibold text-white bg-pink-400 hover:bg-pink-500 active:bg-pink-600 text-base"
+                    className="w-full py-3 rounded-lg font-semibold flex gap-3 items-center justify-center text-white bg-pink-400 hover:bg-pink-500 active:bg-pink-600 lg:cursor-pointer text-base"
                     onClick={handleFinalSave}
                     disabled={loading}
                   >
-                    Save Entry
+                    Save Entry To <IoIosArrowDown size={20} />
                   </button>
                   <button
-                    className="w-full py-3 rounded-lg font-semibold text-pink-400 bg-white border border-pink-300 hover:bg-pink-100 text-base"
+                    className="w-full py-3 rounded-lg font-semibold text-pink-400 bg-white border border-pink-300 hover:bg-pink-100 lg:cursor-pointer text-base"
                     onClick={() => setShowVaultOptions(false)}
                     disabled={loading}
                   >
