@@ -11,7 +11,6 @@ import Page6 from "../flashscreen/Page6";
 import Page7 from "../flashscreen/Page7";
 import SignIn from "../SigIn/SignIn";
 import Account from "./Journal/Account";
-import UserCircles from "./Journal/Resources/UserCircles";
 import NewJournal from "./Journal/Resources/NewJournal";
 
 import Circle from "../circle-component/Circle";
@@ -21,6 +20,7 @@ import Profile from "../profile/Profile";
 
 import UserStreak from "./Journal/Resources/UserStreak";
 import Error from "./Error";
+import Vault from "./Journal/Resources/Vault";
 
 function Pages() {
   return (
@@ -31,7 +31,7 @@ function Pages() {
         <Route path="/login" element={<SignIn />} />
 
         <Route path="/account" element={<Account />} />
-        {/* <Route path="/newjournal" element={<NewJournal />} /> */}
+        <Route path="/vault" element={<Vault />} />
         <Route path="/users" element={<Profile />} />
 
         <Route path="/circle" element={<Circle />} />

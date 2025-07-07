@@ -92,7 +92,7 @@ const Circle = () => {
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`transition-all duration-200 transform hover:scale-105 active:scale-95 hover:shadow-lg ${className} ${
+      className={`transition-all duration-200 lg:cursor-pointer transform hover:scale-95 active:scale-95 hover:shadow-lg ${className} ${
         disabled ? "opacity-50 cursor-not-allowed hover:scale-100" : ""
       }`}
     >
@@ -138,12 +138,14 @@ const Circle = () => {
           </div>
         </div>
 
-        <AnimatedButton
+      {/* <div className="w-full"> */}
+          <AnimatedButton
           onClick={() => navigateScreen("emotion-selection")}
-          className="w-full bg-gradient-to-r mb-[80px] from-rose-400 to-rose-500 text-white py-4 rounded-xl font-medium text-lg shadow-lg animate-slide-up animation-delay-600"
+          className="w-full bg-gradient-to-r lg:cursor-pointer mb-[80px] from-rose-400 to-rose-500 text-white py-4 rounded-xl font-medium text-lg shadow-lg animate-slide-up animation-delay-600"
         >
           Get Started
         </AnimatedButton>
+      {/* </div> */}
       </div>
     </ScreenWrapper>
   );
@@ -171,7 +173,7 @@ const Circle = () => {
               <AnimatedButton
                 key={emotion.name}
                 onClick={() => setSelectedEmotion(emotion.name)}
-                className={`w-full p-4 rounded-xl border-2 transition-all duration-300 animate-slide-up ${
+                className={`w-full grid grid-cols-1 p-4 items-center justify-center rounded-xl border-2 transition-all duration-300 animate-slide-up ${
                   selectedEmotion === emotion.name
                     ? "border-purple-400 bg-white shadow-lg scale-105"
                     : "border-purple-200 bg-purple-100 hover:bg-purple-50"
@@ -193,7 +195,7 @@ const Circle = () => {
 
         <AnimatedButton
           onClick={() => navigateScreen("emotion-detail")}
-          className="w-full bg-gradient-to-r from-rose-400 to-rose-500 text-white py-4 rounded-xl font-medium text-lg shadow-lg"
+          className="w-full lg:cursor-pointer bg-gradient-to-r from-rose-400 to-rose-500 text-white py-4 rounded-xl font-medium text-lg shadow-lg"
           disabled={!selectedEmotion}
         >
           Continue
@@ -249,7 +251,7 @@ const Circle = () => {
 
         <AnimatedButton
           onClick={() => navigateScreen("cycle-setup")}
-          className="w-full bg-gradient-to-r from-rose-400 to-rose-500 text-white py-4 rounded-xl font-medium text-lg shadow-lg"
+          className="w-full bg-gradient-to-r lg:cursor-pointer from-rose-400 to-rose-500 text-white py-4 rounded-xl lg:mb-10 font-medium text-lg shadow-lg"
         >
           Continue
         </AnimatedButton>
@@ -306,7 +308,7 @@ const Circle = () => {
 
         <AnimatedButton
           onClick={() => navigateScreen("calendar")}
-          className="w-full bg-gradient-to-r from-rose-400 to-rose-500 text-white py-4 rounded-xl font-medium text-lg shadow-lg"
+          className="w-full lg:cursor-pointer bg-gradient-to-r from-rose-400 to-rose-500 text-white py-4 rounded-xl font-medium text-lg lg:mb-10 shadow-lg"
         >
           Continue
         </AnimatedButton>

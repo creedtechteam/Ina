@@ -2,7 +2,7 @@ import BottomNav from './BottomNav';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MoodChart from '../../Components/MoodChart';
-import Circle from '../../circle-component/Circle';
+// import Circle from '../../circle-component/Circle';
 
 
 
@@ -20,7 +20,7 @@ const options = [
         subtitle: "Join peer-lead space for healing",
     },
     {
-        title: "public Vault",
+        title: "Public Vault",
         subtitle: "Browse or mint anonymous stories",
     },
     {
@@ -81,7 +81,7 @@ function Account() {
 
                 <div className="text-center">
                     <button
-                        className="bg-pink-400 mb-10 hover:bg-pink-500 w-full text-white py-2 rounded disabled:opacity-50"
+                        className="bg-pink-400 lg:cursor-pointer mb-10 hover:bg-pink-500 w-full text-white py-2 rounded disabled:opacity-50"
                         onClick={handleContinue}
                         disabled={selectedOption === null}
                     >

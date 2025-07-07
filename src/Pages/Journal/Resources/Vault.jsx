@@ -1,8 +1,12 @@
 import React from 'react'
+import BottomNav from '../BottomNav'
 
 function Vault() {
   return (
-    <div>Vault</div>
+    <div>Vault
+    
+    <BottomNav/>
+    </div>
   )
 }
 
