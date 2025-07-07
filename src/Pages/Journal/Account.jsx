@@ -2,7 +2,6 @@ import BottomNav from './BottomNav';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MoodChart from '../../Components/MoodChart';
-// import Circle from '../../circle-component/Circle';
 
 
 
