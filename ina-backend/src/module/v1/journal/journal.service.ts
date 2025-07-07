@@ -116,7 +116,7 @@ export class JournalService implements OnModuleInit {
         attachedDeposit: utils.format.parseNearAmount('0'),
       });
 
-      const transaction_hash = result.transaction.hash;
+      const transaction_hash = result;
       const network = ENVIRONMENT.NEAR.NETWORK || 'testnet';
 
       const explorerUrl = `https://explorer.${network}.near.org/transactions/${transaction_hash}`;

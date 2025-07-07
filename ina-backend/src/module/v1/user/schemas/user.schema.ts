@@ -6,10 +6,13 @@ export type UserDocument = User & Document;
 @Schema({ timestamps: true })
 export class User {
   @Prop({ required: false, sparse: true, unique: true, index: true })
-  accountId: string;
+  walletAddress: string;
 
-  @Prop({ sparse: true, index: true })
+  @Prop({ sparse: true, index: true, required: false, default: null })
   username: string;
+
+  @Prop({ required: false, default: null })
+  profilePhoto: string;
 
   @Prop({ default: null })
   lastLoginAt: Date;

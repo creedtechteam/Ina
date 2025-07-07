@@ -18,6 +18,7 @@ export class CreateJournalEntryDto {
   @ArrayNotEmpty()
   @IsEnum(TagEnum, { each: true })
   tags: TagEnum[];
+
   @IsBoolean()
   @IsOptional()
   is_private?: boolean;

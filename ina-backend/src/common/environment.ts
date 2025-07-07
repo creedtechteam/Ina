@@ -16,6 +16,9 @@ export interface IEnvironment {
     PRIVATE_KEY: string;
     CONTRACT_ID: string;
   };
+  JWT: {
+    SECRET: string;
+  };
 }
 
 export const ENVIRONMENT: IEnvironment = {
@@ -32,6 +35,9 @@ export const ENVIRONMENT: IEnvironment = {
     ACCOUNT_ID: process.env.NEAR_ACCOUNT_ID,
     PRIVATE_KEY: process.env.NEAR_PRIVATE_KEY,
     CONTRACT_ID: process.env.NEAR_CONTRACT_ID,
+  },
+  JWT: {
+    SECRET: process.env.JWT_SECRET,
   },
 };
 
