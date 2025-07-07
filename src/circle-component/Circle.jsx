@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   ChevronLeft,
   Calendar,
@@ -16,7 +16,7 @@ const Circle = () => {
   const [currentScreen, setCurrentScreen] = useState("welcome");
   const [selectedEmotion, setSelectedEmotion] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
-  const [periodStarted, setPeriodStarted] = useState(false);
+  // const [periodStarted, setPeriodStarted] = useState(false); // Removed unused state
   const [isAnimating, setIsAnimating] = useState(false);
 
   const emotions = [
@@ -140,7 +140,7 @@ const Circle = () => {
 
         <AnimatedButton
           onClick={() => navigateScreen("emotion-selection")}
-          className="w-full bg-gradient-to-r from-rose-400 to-rose-500 text-white py-4 rounded-xl font-medium text-lg shadow-lg animate-slide-up animation-delay-600"
+          className="w-full bg-gradient-to-r mb-[80px] from-rose-400 to-rose-500 text-white py-4 rounded-xl font-medium text-lg shadow-lg animate-slide-up animation-delay-600"
         >
           Get Started
         </AnimatedButton>
@@ -417,10 +417,9 @@ const Circle = () => {
 
           <AnimatedButton
             onClick={() => {
-              if (selectedDate) {
-                navigateScreen("period-dashboard");
-                setPeriodStarted(true);
-              }
+            if (selectedDate) {
+              navigateScreen("period-dashboard");
+            }
             }}
             className={`w-full py-4 rounded-xl font-medium text-lg mb-4 shadow-lg ${
               selectedDate
@@ -437,7 +436,6 @@ const Circle = () => {
               onClick={() => {
                 if (selectedDate) {
                   navigateScreen("period-dashboard");
-                  setPeriodStarted(true);
                 }
               }}
               className={`font-medium ${
@@ -459,53 +457,7 @@ const Circle = () => {
     );
   };
 
-  const renderDashboard = () => (
-    <ScreenWrapper className="bg-gradient-to-b from-pink-200 to-pink-300 p-6">
-      <div className="animate-fade-in">
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center">
-            <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-full mr-3 animate-pulse-soft"></div>
-            <span className="text-lg font-medium text-gray-800">July 2</span>
-          </div>
-          <div className="w-8 h-8 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors cursor-pointer"></div>
-        </div>
-
-        <div className="text-center mb-8">
-          <h2 className="text-xl font-semibold text-gray-800 mb-4 animate-slide-up">
-            High Chance of getting pregnant
-          </h2>
-
-          <div className="flex items-center justify-center mb-6 animate-slide-up animation-delay-200">
-            <Flame className="w-6 h-6 text-orange-500 mr-2 animate-bounce-subtle" />
-            <span className="text-xl font-semibold text-gray-800">
-              Ovulation
-            </span>
-          </div>
-
-          <div className="relative w-64 h-64 mx-auto mb-8 animate-slide-up animation-delay-400">
-            <div className="w-full h-full bg-gradient-to-br from-rose-300 to-rose-400 rounded-full flex items-center justify-center shadow-lg animate-pulse-soft">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gray-800 mb-2">
-                  2 days left
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <p className="text-gray-700 text-lg mb-12 animate-slide-up animation-delay-600">
-            Period: 16 days left
-          </p>
-        </div>
-
-        <AnimatedButton
-          onClick={() => navigateScreen("calendar")}
-          className="w-full bg-gradient-to-r from-rose-400 to-rose-500 text-white py-4 rounded-xl font-medium text-lg shadow-lg"
-        >
-          Period Start.
-        </AnimatedButton>
-      </div>
-    </ScreenWrapper>
-  );
+  // The renderDashboard function is not used in the screens object, so it can be removed or fixed if needed.
 
   const renderPeriodDashboard = () => (
     <ScreenWrapper className="bg-gradient-to-b from-pink-200 to-pink-300 p-6">
@@ -622,7 +574,7 @@ const Circle = () => {
     "emotion-detail": renderEmotionDetail,
     "cycle-setup": renderCycleSetup,
     calendar: renderCalendar,
-    dashboard: renderDashboard,
+    // dashboard: renderDashboard, // Removed, function not defined
     "period-dashboard": renderPeriodDashboard,
     "empty-state": renderEmptyState,
   };

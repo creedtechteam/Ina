@@ -91,7 +91,7 @@ function NewJournal({ onBack }) {
             <div className="text-sm text-gray-600 mb-8">Saved to: {vaultOptions.find(v => v.key === selectedVault)?.label || ''}</div>
             <button
               className="w-full max-w-md py-3 rounded-lg font-semibold text-white bg-pink-400 hover:bg-pink-500 lg:cursor-pointer active:bg-pink-600 text-base"
-              onClick={() => navigate('/journal/account')}
+              onClick={() => navigate('/account')}
               disabled={loading}
             >
               Mint as NFT
@@ -151,7 +151,7 @@ function NewJournal({ onBack }) {
               </button>
               <button
                 className="w-11/12 max-w-md py-3 rounded-lg font-semibold text-pink-400 bg-white border border-pink-300 hover:bg-pink-100 lg:cursor-pointer text-base"
-                onClick={() => navigate('/journal/account')}
+                onClick={() => navigate('/account')}
                 disabled={loading}
               >
                 Cancel
