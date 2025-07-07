@@ -62,6 +62,9 @@ function NewJournal({ onBack }) {
         is_public: selectedVault === "public",
         is_dao: selectedVault === "dao",
       });
+      // Mark today's journal as written for streak tracking (store today's date)
+      const today = new Date().toISOString().split('T')[0];
+      localStorage.setItem('journalWrittenToday', today);
       setText("");
     } catch (err) {
       setError(err.message || "Something went wrong");

@@ -16,7 +16,7 @@ export default function ChooseStyle() {
       gradient: "from-orange-400 via-yellow-400 to-orange-500",
       bgColor: "bg-gradient-to-br from-orange-500 to-yellow-600",
 
-      direct: "/journal/account",
+      direct: "/account",
     },
     {
       id: "support",
