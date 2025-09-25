@@ -20,8 +20,8 @@ const options = [
         subtitle: "Join peer-lead space for healing",
     },
     {
-        title: "public Vault",
-        subtitle: "Browse or mint anonymous stories",
+        title: "Mint on Shibuya",
+        subtitle: "Mint your encrypted journal as a soulbound NFT",
     },
     {
         title: "The Forge",
@@ -38,7 +38,7 @@ function Account() {
         '/newjournal', // New journal Entry
         '/userstreak', // Healing Streak
         '/circle',              // Support Circles
-        '/vault',                // public Vault
+        '/mint',                // Mint
         '/forge',                // The Forge
     ];
 

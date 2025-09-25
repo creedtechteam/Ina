@@ -1,0 +1,33 @@
+[package]
+name = "ina_journal"
+description = "Soulbound journal entries with encrypted CID + hash metadata"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+
+[lib]
+name = "ina_journal"
+path = "lib.rs"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+ink = { version = "4.3.0", default-features = false }
+scale = { package = "parity-scale-codec", version = "3.6.12", default-features = false, features = ["derive"] }
+scale-info = { version = "2.11.3", default-features = false, features = ["derive"] }
+
+[features]
+default = ["std"]
+std = [
+  "ink/std",
+  "scale/std",
+  "scale-info/std"
+]
+
+off-chain = []
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "z"
+panic = "abort"
+strip = true

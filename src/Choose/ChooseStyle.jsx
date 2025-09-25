@@ -4,6 +4,7 @@ import frame1 from "../assets/Frame 1686561526.png";
 import frame2 from "../assets/WhatsApp Image 2025-06-30 at 00.13.20_98dc560f 1.png";
 import frame3 from "../assets/WhatsApp Image 2025-06-30 at 00.13.23_21848b0c 1.png";
 import { Link } from "react-router-dom";
+import WalletConnect from "../Components/WalletConnect";
 export default function ChooseStyle() {
   const [selectedStyle, setSelectedStyle] = useState(null);
 
@@ -116,9 +117,12 @@ export default function ChooseStyle() {
         </div>
 
         {/* Subtitle */}
-        <p className="text-gray-600 mb-8 text-center lg:text-xl lg:mb-12">
+        <p className="text-gray-600 mb-4 text-center lg:text-xl lg:mb-6">
           How would you like to begin?
         </p>
+        <div className="flex justify-center mb-6">
+          <WalletConnect />
+        </div>
 
         {/* Style Options */}
         <div className="space-y-6 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0 lg:max-w-5xl lg:mx-auto">

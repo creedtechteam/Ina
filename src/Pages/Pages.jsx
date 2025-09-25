@@ -13,6 +13,7 @@ import SignIn from "../SigIn/SignIn";
 import Account from "./Journal/Account";
 import UserCircles from "./Journal/Resources/UserCircles";
 import NewJournal from "./Journal/Resources/NewJournal";
+import Mint from "./Journal/Resources/Mint";
 
 import Circle from "../circle-component/Circle";
 import ChooseStyle from "../Choose/ChooseStyle";
@@ -39,6 +40,7 @@ function Pages() {
 
         <Route path="/userstreak" element={<UserStreak />} />
         <Route path="/newjournal" element={<NewJournal />} />
+        <Route path="/mint" element={<Mint />} />
         <Route path="/choose" element={<AnimatedButton />} />
         <Route path="/splash" element={<Page1 />} />
         <Route path="/splash2" element={<Page2 />} />

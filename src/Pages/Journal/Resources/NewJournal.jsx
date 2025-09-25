@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IoIosArrowDown } from "react-icons/io";
-import { postJournalEntry } from '../../../api/journal';
+import { encryptTextXChaCha, sha256Hex } from '../../../utils/crypto';
+import { uploadJSON, getWeb3Token, setWeb3Token } from '../../../ipfs/web3Storage';
 
 function NewJournal({ onBack }) {
   const navigate = useNavigate();
@@ -55,21 +56,44 @@ function NewJournal({ onBack }) {
     setLoading(true);
     setError("");
     try {
-      await postJournalEntry({
-        content: text,
+      const token = getWeb3Token() || (() => {
+        const t = typeof window !== 'undefined' ? window.prompt('Enter your Web3.Storage API token to store encrypted data on IPFS (saved locally)') : ''
+        if (t) setWeb3Token(t)
+        return t
+      })()
+      if (!token) throw new Error('Web3.Storage token not provided')
+
+      const hashHex = await sha256Hex(text)
+      const enc = await encryptTextXChaCha(text)
+      const payload = {
+        type: 'ina:journal:v1',
+        createdAt: new Date().toISOString(),
+        enc: { algo: enc.algo, version: enc.version, cipherB64: enc.cipherB64, nonceB64: enc.nonceB64 },
+      }
+      const cid = await uploadJSON(payload, token)
+
+      const entry = {
+        cid,
+        hashHex,
         tags: [],
-        is_private: selectedVault === "private",
-        is_public: selectedVault === "public",
-        is_dao: selectedVault === "dao",
-      });
-      // Mark today's journal as written for streak tracking (store today's date)
-      const today = new Date().toISOString().split('T')[0];
-      localStorage.setItem('journalWrittenToday', today);
-      setText("");
+        vault: selectedVault,
+        keyB64: enc.keyB64,
+        nonceB64: enc.nonceB64,
+        createdAt: payload.createdAt,
+      }
+      const key = 'ina_local_entries'
+      const prev = JSON.parse(localStorage.getItem(key) || '[]')
+      prev.push(entry)
+      localStorage.setItem(key, JSON.stringify(prev))
+
+      // streak helper
+      const today = new Date().toISOString().split('T')[0]
+      localStorage.setItem('journalWrittenToday', today)
+      setText("")
     } catch (err) {
-      setError(err.message || "Something went wrong");
+      setError(err.message || "Something went wrong")
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
   };
 
