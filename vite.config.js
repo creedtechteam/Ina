@@ -15,7 +15,7 @@ export default defineConfig({
       '@polkadot/api',
       '@polkadot/api-contract',
       '@polkadot/extension-dapp',
-      'libsodium-wrappers-sumo'
+      'libsodium-wrappers'
     ],
     esbuildOptions: {
       define: {

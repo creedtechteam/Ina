@@ -1,4 +1,4 @@
-import sodium from 'libsodium-wrappers-sumo'
+import sodium from 'libsodium-wrappers'
 
 export async function sha256Hex(text) {
   const enc = new TextEncoder()
