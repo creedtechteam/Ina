@@ -5,4 +5,28 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   base: './',
   plugins: [react(), tailwindcss()],
+  define: {
+    global: 'globalThis',
+    'process.env': {},
+    'process.env.NODE_ENV': '"production"'
+  },
+  optimizeDeps: {
+    include: [
+      '@polkadot/api',
+      '@polkadot/api-contract',
+      '@polkadot/extension-dapp',
+      'libsodium-wrappers'
+    ],
+    esbuildOptions: {
+      define: {
+        global: 'globalThis'
+      }
+    }
+  },
+  build: {
+    target: 'esnext',
+    commonjsOptions: {
+      transformMixedEsModules: true
+    }
+  }
 })
