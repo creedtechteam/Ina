@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import page from "../assets/a896fb003010532864c0d1d711bd9e1a77558018.jpg";
 import { useNavigate } from "react-router-dom";
+import WalletConnect from "../Components/WalletConnect";
 const Page6 = () => {
   const navigate = useNavigate();
   const handleConnectWallet = () => {
@@ -41,13 +42,9 @@ const Page6 = () => {
           Start journaling and owning your story, privately
         </p>
 
-        {/* Connect Wallet Button */}
-        <button
-          onClick={handleConnectWallet}
-          className="w-full bg-gradient-to-r from-pink-400 to-pink-500 text-white font-semibold py-4 px-6 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 mb-6"
-        >
-          Connect Your Near Wallet
-        </button>
+        <div className="mb-6">
+          <WalletConnect />
+        </div>
 
         {/* Sign In Link */}
         <div className="text-center">
@@ -56,7 +53,7 @@ const Page6 = () => {
             className="text-gray-600 hover:text-gray-800 transition-colors duration-300"
           >
             Already part of INA?{" "}
-            <Link to="/sigin">
+            <Link to="/signin">
               <span className="font-semibold text-gray-900">Sign In</span>
             </Link>
           </button>
